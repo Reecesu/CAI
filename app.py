@@ -117,22 +117,22 @@ def get_relations(relations):
     relations (list): information on all relations in a schema
 
     Returns:
-    nodes (dict): nodes in the schema
     edges (list): edges in the schema
     """
     edges = []
-    # 'relation': ['name', 'relationSubject', 'relationPredicate', 'relationObject', '@id']
+    # Assuming 'relation': ['name', 'relationSubject', 'relationPredicate', 'relationObject', '@id', 'utterances']
     for relation in relations:
-        edge = create_edge(_source = relation['relationSubject'],
-                           _target = relation['relationObject'],
-                           _label = relation['name'],
-                           _edge_type = 'relation')
+        edge = create_edge(_source=relation['relationSubject'],
+                           _target=relation['relationObject'],
+                           _label=relation['name'],
+                           _edge_type='relation')
         edge['data']['@id'] = relation['@id']
         edge['data']['predicate'] = relation.get('relationPredicate', relation.get('wd_node', ''))
+        edge['data']['utterances'] = relation.get('utterances', []) # Ensure this list is filled with actual utterances before this point.
         edges.append(edge)
 
-    # print("\nedges from get_relations:", edges)
     return edges
+
 
 def handle_containers(nodes, edges, containers):
     """Connects incoming and outgoing edges and removes all unvisualized nodes and edges.

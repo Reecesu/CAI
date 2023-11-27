@@ -151,7 +151,7 @@ class Viewer extends Component {
             <div id="viewer">
                 <div className='container'>
                     <ToastContainer theme="colored" />
-                    <UploadModal buttonLabel="Upload Schema" parentCallback={this.callbackFunction} />
+                    <UploadModal buttonLabel="Upload Dialogue" parentCallback={this.callbackFunction} />
                     <IconButton aria-label="download" disabled={!this.state.isUpload} color="primary" onClick={this.download}>
                         <DownloadIcon />
                     </IconButton>

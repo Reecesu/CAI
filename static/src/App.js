@@ -101,7 +101,7 @@ export default function App() {
               <a
                 target="_blank"
                 rel="noopener"
-                href="https://github.com/cu-clear/schema-interface"
+                href="https://github.com/Reecesu/CAI"
               >
                 <GitHubIcon />
               </a>
